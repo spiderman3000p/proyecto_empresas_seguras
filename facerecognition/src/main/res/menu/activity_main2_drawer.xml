@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="@string/migraciones"
+        android:visible="false">
+        <menu>
+            <item
+                android:id="@+id/nav_share"
+                android:icon="@android:drawable/ic_menu_recent_history"
+                android:title="@string/ver_exportaciones" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@android:drawable/ic_menu_recent_history"
+                android:title="@string/ver_importaciones" />
+        </menu>
+    </item>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_cambiar_clave"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="@string/cambiar_superclave" />
+        <item
+            android:id="@+id/nav_import_database"
+            android:icon="@android:drawable/ic_menu_save"
+            android:title="@string/importar_db" />
+        <item
+            android:id="@+id/nav_export_database"
+            android:icon="@android:drawable/ic_menu_upload"
+            android:title="@string/exportar_db" />
+        <item
+            android:id="@+id/nav_clear_database"
+            android:icon="@android:drawable/ic_menu_delete"
+            android:title="@string/eliminar_registros_exportados" />
+    </group>
+
+    <item
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:title="Mi jornada">
+        <menu>
+            <item
+                android:id="@+id/nav_finalizar_jornada"
+                android:icon="@android:drawable/ic_menu_set_as"
+                android:title="Finalizar jornada sin relevo" />
+        </menu>
+    </item>
+
+</menu>

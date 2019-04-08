@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingBottom="1dp"
+    android:paddingTop="10dp"
+    android:gravity="center_horizontal"
+    android:baselineAligned="false">
+
+
+
+        <Button
+            android:id="@+id/btAccederOp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="@drawable/button_search"
+            android:drawableLeft="@drawable/op1"
+            android:drawableStart="@drawable/op1"
+            android:padding="8dp"
+            android:text="@string/options"
+
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tvCodigoOp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:visibility="invisible" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cedula"
+            android:visibility="invisible" />
+
+</LinearLayout>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.opencv.javacv.facerecognition.Activities.RadioNuevo">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar4"
+            title="@string/title_activity_radios_nuevo"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppBarStyle"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/appbar"
+        android:layout_margin="15dp"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginVertical="20dp"
+            android:fillViewport="false"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/date_holder"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/puesto"
+                android:theme="@style/subtitle1" />
+
+            <AutoCompleteTextView
+                android:id="@+id/selectPuesto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_edit_text"
+                android:focusedByDefault="false"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="@color/black_overlay"
+                android:textColorLink="@android:color/background_dark"
+                android:textIsSelectable="false"
+                android:theme="@style/editTextBlue" />
+
+            <Switch
+                android:id="@+id/switchRespondio"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:showText="true"
+                android:text="@string/respondio"
+                android:textOff="@string/no"
+                android:textOn="@string/si"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/tvNovedadN"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/novedad"
+                android:theme="@style/subtitle1"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/textNovedad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_edit_text"
+                android:gravity="top"
+                android:lines="8"
+                android:maxLength="8000"
+                android:maxLines="10"
+                android:singleLine="false"
+                android:theme="@style/editTextBlue"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>

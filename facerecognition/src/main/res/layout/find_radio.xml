@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="1dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="10dp">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Busqueda"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etTextoRadioFind"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoText="true"
+        android:focusedByDefault="true"
+        android:gravity="top"
+        android:hint="Ingrese un texto a buscar"
+        android:lines="1"
+        android:maxLength="100" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:focusable="false"
+            android:textColor="#372c24"
+            android:textSize="@dimen/text_listview_1"
+            tools:text="Intervalo de fechas" />
+
+        <EditText
+            android:id="@+id/etDesdeRadioFind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:gravity="right"
+            android:hint="yyyy-MM-dd" />
+
+        <EditText
+            android:id="@+id/etHastaRadioFind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:gravity="right"
+            android:hint="yyyy-MM-dd" />
+    </LinearLayout>
+
+</LinearLayout>
+

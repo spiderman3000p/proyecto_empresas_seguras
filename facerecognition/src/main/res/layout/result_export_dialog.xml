@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        app:srcCompat="@drawable/shield" />
+
+    <ImageView
+        android:id="@+id/image_result"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignBottom="@+id/ivLogo"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginEnd="190dp"
+        app:srcCompat="@drawable/okp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="190dp" />
+
+    <TextView
+        android:id="@+id/tvMensaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/ivLogo"
+        android:layout_marginTop="164dp"
+        android:text="@string/export_finish_msg"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:layout_alignParentLeft="true" />
+
+    <TextView
+        android:id="@+id/tvTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ivLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="86dp"
+        android:text="@string/exportacion_exitosa"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvMensaje"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="47dp"
+        android:padding="20dp"
+        android:text="@string/entendido"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+    <Button
+        android:id="@+id/btnBluetooth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnOk"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/button_focused"
+        android:padding="20dp"
+        android:text="@string/enviar_por_bluetooht"
+        android:textAllCaps="false"
+        android:textSize="24sp" />
+
+</RelativeLayout>

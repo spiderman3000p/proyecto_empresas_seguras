@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar3"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppBarStyle"
+            app:title="@string/title_activity_radios"
+             />
+
+        <EditText
+            android:id="@+id/searchText"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="#e3e3e3"
+            android:drawableRight="@android:drawable/ic_menu_search"
+            android:focusedByDefault="false"
+            android:hint="@string/texto_a_buscar"
+            android:paddingLeft="10dp"
+            android:singleLine="true"
+            android:textColor="#000000"
+            android:textColorHint="#b6b4b4" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appbar"
+        android:addStatesFromChildren="false"
+        android:alwaysDrawnWithCache="false"
+        android:animateLayoutChanges="false"
+        android:animationCache="false"
+        android:focusedByDefault="true"
+        android:scrollbars="vertical"
+        android:splitMotionEvents="false">
+
+        <requestFocus
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </android.support.v7.widget.RecyclerView>
+
+
+</RelativeLayout>

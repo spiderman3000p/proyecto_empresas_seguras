@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.opencv.javacv.facerecognition.Activities.RadioNuevo">
+
+    <!-- header -->
+
+    <!-- footer -->
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar4"
+            title="@string/title_activity_radios_nuevo"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppBarStyle"/>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appbar"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadeScrollbars="true"
+            android:fillViewport="true"
+            android:isScrollContainer="false"
+            android:orientation="vertical"
+            android:overScrollMode="always"
+            android:padding="8dp"
+            android:scrollbars="vertical">
+
+            <TextView
+                android:id="@+id/txtFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/date_holder"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvOrdenTrabajoCSN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/subtitle1"
+                android:text="@string/orden_trabajo"/>
+
+            <EditText
+                android:id="@+id/etOrdenTrabajoCSN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/shape_edit_text"
+                android:hint="@string/hint_orden_trabajo"
+                android:maxLength="250"
+                android:maxLines="1"
+                android:padding="8dp"
+                android:singleLine="true" />
+
+            <TextView
+                android:id="@+id/tvComentarioCSN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/obvervaciones"
+                android:theme="@style/subtitle1" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/etComentarioCSN"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/shape_edit_text"
+                        android:gravity="top"
+                        android:hint="@string/hint_observaciones"
+                        android:isScrollContainer="true"
+                        android:lines="5"
+                        android:maxHeight="200dp"
+                        android:nestedScrollingEnabled="true"
+                        android:padding="8dp"
+                        android:scrollbars="vertical" />
+                </LinearLayout>
+            </ScrollView>
+
+            <RelativeLayout
+                android:id="@+id/linear"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="0dp"
+                android:layout_marginTop="10dp">
+
+                <ImageView
+                    android:id="@+id/ivFotoCSN"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerHorizontal="true"
+                    android:adjustViewBounds="true"
+                    android:contentDescription="@string/imagen"
+                    android:cropToPadding="true"
+                    android:padding="10dp"
+                    android:scaleType="fitStart"
+                    android:src="@drawable/picture"
+                    android:tooltipText="@string/imagen_tooltip"
+                    tools:targetApi="o" />
+
+                <ImageButton
+                    android:id="@+id/btCameraCSN"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_gravity="top"
+                    android:layout_marginTop="20dp"
+                    android:adjustViewBounds="false"
+                    android:background="@drawable/button_example"
+                    android:baselineAlignBottom="false"
+                    android:contentDescription="@string/imagen"
+                    android:src="@drawable/ic_menu_camera" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

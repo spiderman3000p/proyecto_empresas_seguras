@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Empresas Seguras</string>
+    <string name="SDelete">Borrar</string>
+    <string name="SSearch">Buscar</string>
+    <string name="STrain">Entrenar</string>
+    <string name="SViewAll">Ver todo</string>
+    <string name="SEnter">Escriba nombre,luego pulse Rec</string>
+    <string name="SStopTrain">Parar entreno</string>
+    <string name="SStopSearch">Parar búsqueda</string>
+    <string name="Straininig">Entrenando....</string>
+ 	<string name="SCanntoPredic">Se necesita más de una cara para buscar</string>
+ 	<string name="SIdle">Pausa</string>
+    <string name="SFaceName">Nombre:</string>
+    <string name="SSearching">Buscando</string>
+    <string name="SFrontCamera">Cámara Frontal</string>
+    <string name="SBackCamera">Cámara Trasera</string>
+    <string name="action_add">Agregar</string>
+    <string name="action_search">Buscar</string>
+    <string name="title_activity_radios">Control de Radios</string>
+    <string name="title_activity_radios_nuevo">Nuevo Control de Radios</string>
+    <string name="title_activity_radios_consulta">Consulta Control de Radios</string>
+    <string name="title_activity_bitacora">Bitácora de Novedades</string>
+    <string name="title_activity_bitacora_nuevo">Nuevo registro Bitacora</string>
+    <string name="title_activity_bitacora_edit">Editar Bitacora</string>
+    <string name="title_activity_usuarios">Registrar usuarios</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="db_name">compuredve.db</string>
+
+    <!-- Strings related to login -->
+    <string name="action_sign_in">ENTRAR</string>
+    <string name="dni_text">Ingrese su cedula</string>
+    <string name="title_activity_login">Empresas Seguras</string>
+    <string name="title_activity_dashboard">Inicio</string>
+    <string name="title_activity_gallery2">Galeria</string>
+
+    <string name="configuration">Configuracion</string>
+    <string name="logout">Salir</string>
+    <string name="new_password_diff">Claves no coinciden</string>
+
+
+</resources>

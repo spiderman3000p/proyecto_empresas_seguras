@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ads="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.opencv.javacv.facerecognition.Activities.RadioNuevo">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar4"
+            title="@string/title_activity_radios_nuevo"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppBarStyle" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appbar"
+        android:fillViewport="true"
+        android:orientation="vertical"
+        android:paddingBottom="8dp"
+        android:paddingEnd="8dp"
+        android:paddingStart="8dp"
+        android:paddingTop="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/date_holder" />
+
+            <Switch
+                android:id="@+id/switchRespondio"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:textOff="@string/normal"
+                android:textOn="@string/urgente"
+                android:showText="true"
+                tools:targetApi="lollipop" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvNovedadN"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/novedad"
+            android:theme="@style/subtitle1"/>
+
+        <EditText
+            android:id="@+id/textNovedad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_edit_text"
+            android:gravity="top"
+            android:hint="@string/hint_novedad"
+            android:inputType="textMultiLine"
+            android:labelFor="@+id/textNovedad"
+            android:lines="10"
+            android:maxLength="8000" />
+
+        <TextView
+            android:id="@+id/titleComentarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/comentarios"
+            android:theme="@style/subtitle1" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rvComentarios"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical" />
+
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/grabarButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:clickable="true"
+        ads:backgroundTint="@android:color/holo_blue_dark"
+        android:visibility="gone"
+        ads:fabSize="auto"
+        ads:srcCompat="@drawable/boton_redondo_rojo" />
+</RelativeLayout>

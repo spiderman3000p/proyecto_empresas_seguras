@@ -1,0 +1,22 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.app.ingeniosc.activities.Radios">
+    <item
+        android:id="@+id/addRadio_action"
+        android:checkable="true"
+        android:icon="@android:drawable/ic_menu_add"
+        android:orderInCategory="100"
+        android:title="@string/action_add"
+        android:tooltipText="Presione aqui para agregar un registro"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/searchRadio_action"
+        android:checkable="true"
+        android:icon="@android:drawable/ic_menu_search"
+        android:orderInCategory="100"
+        android:title="@string/action_search"
+        android:visible="true"
+        android:tooltipText="Presione aqui para buscar un registro"
+        app:showAsAction="ifRoom|withText" />
+</menu>

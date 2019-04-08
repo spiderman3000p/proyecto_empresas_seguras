@@ -1,0 +1,7 @@
+<resources>
+
+    <color name="black_overlay">#66000000</color>
+    <color name="editText">@android:color/holo_blue_bright</color>
+
+
+</resources>

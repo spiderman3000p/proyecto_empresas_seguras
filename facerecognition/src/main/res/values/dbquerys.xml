@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<!--- TODO: al eliminar un usuario o eliminar un puesto, avisarle al usuario que se eliminaran los registros de las sesiones del usuario/puesto a eliminar -->
+    <!--- TODO: al eliminar un puesto, avisarle al usuario que se eliminaran los registros de las llmadas por radio del puesto a eliminar -->
+    <!-- ////////////////////////////////////////////   CREATES TABLES   //////////////////////////////////////////////////////////// -->
+    <string name="create_session_table">CREATE TABLE IF NOT EXISTS session (id INTEGER PRIMARY KEY AUTOINCREMENT, puesto_id INTEGER REFERENCES puesto(id), usuario_id INTEGER REFERENCES usuario(id), dispositivo TEXT, inicio TEXT,fin TEXT,serieDispositivo TEXT,migrated INTEGER DEFAULT 0,migrated_timestamp TEXT)</string>
+    <string name="create_dispositivo_table">CREATE TABLE IF NOT EXISTS dispositivo (id INTEGER,suministro_id INTEGER PRIMARY KEY REFERENCES suministro(id), marca TEXT, modelo TEXT, sistema TEXT, serie TEXT,created_at TEXT, updated_at TEXT)</string>
+    <string name="create_informe_table">CREATE TABLE IF NOT EXISTS informe (id INTEGER PRIMARY KEY AUTOINCREMENT, puesto_id INTEGER REFERENCES puesto(id) ON DELETE RESTRICT, usuario_id INTEGER REFERENCES usuario(id) ON DELETE RESTRICT, titulo TEXT NOT NULL, observacion TEXT NOT NULL, timestamp TEXT NOT NULL DEFAULT CURRENT_DATE, foto1 BLOB, foto2 BLOB, foto3 BLOB,migrated INTEGER DEFAULT 0,migrated_timestamp TEXT)</string>
+    <string name="create_bitacora_table">CREATE TABLE IF NOT EXISTS bitacora (id INTEGER PRIMARY KEY AUTOINCREMENT, observacion TEXT, timestamp TEXT, usuario_id INTEGER REFERENCES usuario(id) ON DELETE RESTRICT, tipo INTEGER DEFAULT 0, puesto_id INTEGER REFERENCES puesto(id) ON DELETE CASCADE ON UPDATE CASCADE, migrated INTEGER DEFAULT 0,migrated_timestamp TEXT)</string>
+    <string name="create_puesto_table">CREATE TABLE IF NOT EXISTS puesto (id INTEGER PRIMARY KEY, nombre TEXT, descripcion TEXT,nominativo TEXT, compania_id INTEGER REFERENCES compania(id)  ON DELETE RESTRICT, estado INTEGER DEFAULT 1, created_at TEXT,updated_at TEXT)</string>
+    <string name="create_compania_table">CREATE TABLE IF NOT EXISTS compania (id INTEGER PRIMARY KEY, codigo TEXT NOT NULL UNIQUE, nombre TEXT NOT NULL UNIQUE, ruc TEXT NOT NULL UNIQUE, representante TEXT, estado INTEGER DEFAULT 1,created_at TEXT, updated_at TEXT)</string>
+    <string name="create_user_table">CREATE TABLE IF NOT EXISTS usuario(id INTEGER PRIMARY KEY,dni TEXT NOT NULL UNIQUE, fecha_registro TEXT, fecha_nacimiento TEXT, fecha_ingreso TEXT, nombre TEXT, apellido TEXT, direccion TEXT, ciudad TEXT, telefono INTEGER, avatar BLOB,  rol_id INTEGER REFERENCES rol(id) ON DELETE RESTRICT, cargo_id INTEGER REFERENCES cargo(id) ON DELETE RESTRICT, compania_id INTEGER REFERENCES compania(id)  ON DELETE RESTRICT,logged INTEGER DEFAULT 0,migrated INTEGER DEFAULT 0,migrated_timestamp TEXT,clave TEXT,email TEXT UNIQUE,password TEXT,remember_token TEXT,created_at TEXT,updated_at TEXT)</string>
+    <string name="create_log_table">CREATE TABLE IF NOT EXISTS log(id INTEGER PRIMARY KEY AUTOINCREMENT, usuario_id INTEGER REFERENCES usuario(id), descripcion TEXT NOT NULL UNIQUE,timestamp TEXT,,created_at TEXT,updated_at TEXT)</string>
+    <string name="create_radio_table">CREATE TABLE IF NOT EXISTS radio (id INTEGER PRIMARY KEY AUTOINCREMENT, puesto_id INTEGER REFERENCES puesto(id) ON DELETE CASCADE, usuario_id INTEGER REFERENCES usuario(id) ON DELETE RESTRICT, timestamp TEXT NOT NULL, responde INTEGER NOT NULL DEFAULT 0,migrated INTEGER DEFAULT 0,migrated_timestamp TEXT)</string>
+    <string name="create_cargo_table">CREATE TABLE IF NOT EXISTS cargo(id INTEGER PRIMARY KEY, descripcion TEXT NOT NULL, responsabilidades TEXT, estado INTEGER DEFAULT 1,compania_id INTEGER REFERENCES compania(id) ON DELETE CASCADE,created_at TEXT, updated_at TEXT,UNIQUE(compania_id,descripcion))</string>
+    <string name="create_role_table">CREATE TABLE IF NOT EXISTS rol(id INTEGER PRIMARY KEY, descripcion TEXT NOT NULL UNIQUE, responsabilidades TEXT, estado INTEGER DEFAULT 1,ver INTEGER DEFAULT 0,registrar INTEGER DEFAULT 0, editar INTEGER DEFAULT 0, borrar INTEGER DEFAULT 0,superuser INTEGER DEFAULT 0,created_at TEXT,updated_at TEXT)</string>
+    <string name="create_modulo_table">CREATE TABLE IF NOT EXISTS modulo(id INTEGER PRIMARY KEY, codigo TEXT NOT NULL UNIQUE, descripcion TEXT NOT NULL UNIQUE, estado INTEGER DEFAULT 1,created_at TEXT,updated_at TEXT)</string>
+    <string name="create_asistance_table">CREATE TABLE IF NOT EXISTS asistencia(id INTEGER PRIMARY KEY AUTOINCREMENT,fecha TEXT DEFAULT CURRENT_TIMESTAMP, descripcion TEXT, usuario_id INTEGER NOT NULL REFERENCES usuario(id) ON DELETE CASCADE ON UPDATE CASCADE,puesto_id INTEGER NOT NULL REFERENCES puesto(id) ON DELETE CASCADE ON UPDATE CASCADE,migrated INTEGER DEFAULT 0,migrated_timestamp TEXT)</string>
+    <string name="create_modulo_user_table">CREATE TABLE IF NOT EXISTS modulousuario(id INTEGER,modulo_id INTEGER REFERENCES modulo(id) ON DELETE RESTRICT, usuario_id INTEGER NOT NULL REFERENCES usuario(id) ON DELETE RESTRICT, migrated INTEGER DEFAULT 0,migrated_timestamp TEXT,created_at TEXT,updated_at TEXT,PRIMARY KEY (modulo_id, usuario_id))</string>
+    <string name="create_label_table">CREATE TABLE IF NOT EXISTS label(key INTEGER PRIMARY KEY, descripcion TEXT NOT NULL UNIQUE)</string>
+    <string name="create_system_table">CREATE TABLE IF NOT EXISTS system(id INTEGER PRIMARY KEY, puesto_id,dispositivo_id INTEGER REFERENCES dispositivo(id), locale TEXT,password INTEGER)</string>
+    <string name="create_comment_bitacora_table">CREATE TABLE IF NOT EXISTS comentario_bitacora(id INTEGER PRIMARY KEY AUTOINCREMENT,bitacora_id INTEGER REFERENCES bitacora(id) ON DELETE CASCADE, usuario_id INTEGER REFERENCES usuario(id) ON DELETE RESTRICT, datetime TEXT,comentario TEXT,migrated INTEGER DEFAULT 0,migrated_timestamp TEXT)</string>
+    <string name="create_control_azucar_table">CREATE TABLE IF NOT EXISTS controlsalida (id INTEGER PRIMARY KEY AUTOINCREMENT,usuario_id INTEGER REFERENCES usuario(id), puesto_id INTEGER REFERENCES puesto(id) ON DELETE CASCADE, orden_trabajo TEXT NOT NULL UNIQUE, comentario TEXT,timestamp TEXT,foto BLOB,migrated INTEGER DEFAULT 0,migrated_timestamp TEXT)</string>
+    <string name="create_relevo_table">CREATE TABLE IF NOT EXISTS relevo (id INTEGER PRIMARY KEY AUTOINCREMENT, puesto_id INTEGER REFERENCES puesto(id),comentario, timestamp TEXT NOT NULL, usuario_id_saliente INTEGER REFERENCES usuario (id),usuario_id_entrante INTEGER REFERENCES usuario (id),migrated INTEGER DEFAULT 0,migrated_timestamp TEXT)</string>
+    <string name="create_suministro_table">CREATE TABLE IF NOT EXISTS suministro (id INTEGER PRIMARY KEY,codigo VARCHAR (10)  UNIQUE, descripcion VARCHAR (100),serial VARCHAR (50),estado INTEGER DEFAULT 1,cantidad INTEGER,created_at TEXT,updated_at TEXT)</string>
+    <string name="create_relevo_suministro_table">CREATE TABLE IF NOT EXISTS relevo_suministro (relevo_id INTEGER REFERENCES relevo (id),suministro_id INTEGER REFERENCES suministro (id) ON DELETE CASCADE ON UPDATE NO ACTION,cantidad INTEGER NOT NULL,migrated INTEGER DEFAULT 0,migrated_timestamp TEXT,PRIMARY KEY (relevo_id,suministro_id))</string>
+    <string name="create_puesto_suministro_table">CREATE TABLE IF NOT EXISTS puesto_suministro (id INTEGER,puesto_id INTEGER REFERENCES puesto (id),suministro_id INTEGER REFERENCES suministro (id) ON DELETE CASCADE ON UPDATE NO ACTION,cantidad INTEGER,created_at TEXT,updated_at TEXT,PRIMARY KEY (id,puesto_id,suministro_id))</string>
+
+    <!-- ////////////////////////////////////////////   SELECTS   //////////////////////////////////////////////////////////// -->
+    <string name="get_control_azucar_where" >SELECT A.id,A.usuario_id,A.orden_trabajo, A.comentario,A.timestamp,A.foto,A.puesto_id FROM controlsalida AS A WHERE id = ? ORDER BY A.timestamp DESC</string>
+    <string name="get_comentarios">SELECT C.id,C.comentario,C.bitacora_id,(SELECT nombre FROM usuario WHERE id = C.usuario_id) AS nombre_usuario,(SELECT apellido FROM usuario WHERE id = C.usuario_id) AS apellido_usuario,C.usuario_id,C.datetime FROM comentario_bitacora AS C WHERE C.bitacora_id =</string>
+    <string name="get_puesto_id_from_disp">SELECT PS.puesto_id FROM puesto_suministro AS PS, dispositivo AS D WHERE PS.suministro_id = D.suministro_id AND D.serie = </string>
+    <string name="get_bitacoras">SELECT A.id, A.puesto_id, A.usuario_id, A.observacion, A.timestamp, A.tipo, (SELECT nombre FROM usuario WHERE id = A.usuario_id) AS nombre_usuario, (SELECT apellido FROM usuario WHERE id = A.usuario_id) AS apellido_usuario,(SELECT COUNT(*) FROM comentario_bitacora WHERE bitacora_id = A.id) AS num_comentarios FROM bitacora AS A ORDER BY A.timestamp DESC</string>
+    <string name="get_companias">SELECT id,codigo,nombre,ruc,representante,estado FROM compania WHERE estado = 1</string>
+    <string name="get_user_where">SELECT A.id,A.dni,A.compania_id,A.cargo_id,A.rol_id,A.nombre,A.apellido,A.fecha_nacimiento,A.fecha_registro,A.fecha_ingreso,A.telefono,A.ciudad,A.direccion,(SELECT B.descripcion FROM cargo AS B WHERE B.id = A.cargo_id) AS nombre_cargo, (SELECT C.descripcion FROM cargo AS C WHERE C.id = A.rol_id) AS nombre_rol,(SELECT locale FROM system WHERE id = 1) AS locale,A.logged,A.avatar FROM usuario AS A WHERE A.dni = ?</string>
+    <string name="get_user_where_id">SELECT A.id,A.dni,A.compania_id,A.cargo_id,A.rol_id,A.nombre,A.apellido,A.fecha_nacimiento,A.fecha_registro,A.fecha_ingreso,A.telefono,A.ciudad,A.direccion,(SELECT B.descripcion FROM cargo AS B WHERE B.id = A.cargo_id) AS nombre_cargo, (SELECT C.descripcion FROM cargo AS C WHERE C.id = A.rol_id) AS nombre_rol,(SELECT locale FROM system WHERE id = 1) AS locale,A.logged,A.avatar FROM usuario AS A WHERE A.id = ?</string>
+    <string name="get_user_where_dni_clave">SELECT id FROM usuario WHERE dni = ? AND clave = ?</string>
+    <string name="get_azucars">SELECT A.id,A.usuario_id,A.puesto_id,A.orden_trabajo, A.comentario,A.timestamp,A.foto FROM controlsalida AS A ORDER BY A.timestamp DESC</string>
+    <string name="get_informes">SELECT A.id,A.puesto_id,A.usuario_id,(SELECT nombre FROM usuario WHERE id = A.usuario_id) AS nombre_usuario,(SELECT apellido FROM usuario WHERE id = A.usuario_id) AS apellido_usuario,A.titulo,A.observacion,A.timestamp,A.foto1,A.foto2,A.foto3 FROM informe AS A ORDER BY A.timestamp DESC</string>
+    <string name="get_radios">SELECT R.id,R.usuario_id,R.puesto_id,C.id AS compania_id, U.nombre AS nombre_usuario,U.apellido AS apellido_usuario,R.timestamp,C.nombre AS nombre_compania,P.nominativo,P.nombre AS nombre_puesto,R.responde FROM radio AS R, usuario AS U, puesto AS P, compania AS C WHERE R.puesto_id = P.id AND U.id = R.usuario_id AND C.id = p.compania_id ORDER BY R.timestamp DESC</string>
+    <string name="get_puestos_where_compania">SELECT P.id,P.nombre,P.descripcion,P.compania_id, P.nominativo FROM puesto AS P WHERE P.estado = 1 AND P.compania_id = </string>
+    <string name="get_azucar_where">SELECT A.id,A.usuario_id,A.compania_id,A.orden_trabajo, A.comentario,A.timestamp,A.foto FROM controlsalida AS A WHERE A.id =</string>
+    <string name="get_radios_where_id">SELECT R.id,R.usuario_id,R.puesto_id,C.id AS compania_id, U.nombre AS nombre_usuario,U.apellido AS apellido_usuario,R.timestamp,C.nombre AS nombre_compania,P.nominativo,P.nombre AS nombre_puesto,R.responde FROM radio AS R, usuario AS U, puesto AS P, compania AS C WHERE R.puesto_id = P.id AND U.id = R.usuario_id AND C.id = p.compania_id AND R.id = </string>
+    <string name="get_user_permissions_where">SELECT P.descripcion AS nombre_permiso FROM rolpermiso AS R, permiso AS P, usuario AS U WHERE P.id = R.permiso_id AND R.rol_id = U.rol_id  AND U.dni =  ?</string>
+    <string name="get_user_modules_where">SELECT M.descripcion AS nombre_modulo,M.codigo AS codigo_modulo FROM modulousuario AS MU, modulo AS M, usuario AS U WHERE M.id = MU.modulo_id AND MU.usuario_id = U.id AND U.dni = ?</string>
+    <string name="get_user_module_where">SELECT M.descripcion AS nombre_modulo,M.codigo AS codigo_modulo FROM modulousuario AS MU, modulo AS M WHERE M.id = MU.modulo_id AND M.codigo = </string>
+    <string name="get_migrated_rows_count">SELECT COUNT(*) FROM ? WHERE </string>
+    <string name="get_migrated_last_timestamp">SELECT MAX(migrated_timestamp) FROM ? WHERE </string>
+    <string name="get_labelkey_where">SELECT key FROM label WHERE descripcion = </string>
+    <string name="get_label_where">SELECT descripcion FROM label WHERE key = </string>
+    <string name="get_asistencia_where">SELECT COUNT(*) FROM asistencia WHERE fecha LIKE ? AND usuario_id = ? AND descripcion = ?</string>
+    <string name="get_cedula">SELECT COUNT(*) AS contador  FROM usuario WHERE dni = ?</string>
+    <string name="get_roles_where">SELECT id,descripcion,responsabilidades,estado FROM rol WHERE estado = 1</string>
+    <string name="get_rol_where_id">SELECT id,descripcion,responsabilidades,estado,ver,registrar,editar,borrar FROM rol WHERE estado = 1 AND id = </string>
+    <string name="get_cargos_where">SELECT id,descripcion,responsabilidades,estado FROM cargo WHERE estado = 1</string>
+    <string name="count_labels">SELECT COUNT(*) FROM label</string>
+    <string name="get_informe_where">SELECT A.id,A.puesto_id,A.usuario_id,(SELECT nombre FROM usuario WHERE id = A.usuario_id) AS nombre_usuario,(SELECT apellido FROM usuario WHERE id = A.usuario_id) AS apellido_usuario,A.titulo,A.observacion,A.timestamp,A.foto1,A.foto2,A.foto3 FROM informe AS A WHERE A.id =</string>
+    <string name="get_bitacora_where">SELECT A.id, A.puesto_id, A.usuario_id, A.observacion, A.timestamp, A.tipo, (SELECT nombre FROM usuario WHERE id = A.usuario_id) AS nombre_usuario, (SELECT apellido FROM usuario WHERE id = A.usuario_id) AS apellido_usuario,(SELECT COUNT(*) FROM comentario_bitacora WHERE bitacora_id = A.id) AS num_comentarios FROM bitacora AS A WHERE A.id=</string>
+    <string name="get_suministros_where">SELECT id,codigo,descripcion,serial,estado,cantidad FROM suministro WHERE estado = 1</string>
+    <string name="get_suministros_where_puesto">SELECT S.id,S.codigo,S.descripcion,S.serial,S.estado,PS.cantidad FROM suministro AS S,puesto_suministro AS PS WHERE S.estado = 1 AND S.id = PS.suministro_id AND PS.puesto_id = ?</string>
+    <string name="get_dispositivos">SELECT D.suministro_id,D.marca,D.modelo,D.serie,D.id FROM dispositivo AS D,suministro AS S WHERE S.suministro_id = D.suministro_id AND S.estado = 1</string>
+    <string name="get_dispositivos_where_suministro">SELECT suministro_id,marca,modelo,serie,id FROM dispositivo WHERE suministro_id = </string>
+    <string name="get_relevos_where">SELECT R.id,R.puesto_id,R.comentario,R.timestamp,R.usuario_id_saliente,R.usuario_id_entrante,(SELECT COUNT(*) FROM relevo_suministro WHERE relevo_id = R.id) AS num_suministros,(SELECT nombre FROM usuario WHERE id = R.usuario_id_saliente) AS nombre_usuario_saliente,(SELECT nombre FROM usuario WHERE id = R.usuario_id_entrante) AS nombre_usuario_entrante, (SELECT nominativo FROM puesto WHERE id = R.puesto_id) AS nominativo_puesto FROM relevo AS R WHERE puesto_id =? ORDER BY R.timestamp DESC</string>
+    <string name="get_inventario_relevo_where">SELECT RS.relevo_id,RS.suministro_id,S.descripcion,RS.cantidad FROM suministro AS S,relevo_suministro AS RS WHERE RS.suministro_id = S.id AND RS.relevo_id=</string>
+    <string name="get_relevo_where">SELECT R.id,R.puesto_id,R.comentario,R.timestamp,R.usuario_id_saliente,R.usuario_id_entrante,(SELECT COUNT(*) FROM relevo_suministro WHERE relevo_id = R.id) AS num_suministros,(SELECT nombre FROM usuario WHERE id = R.usuario_id_saliente) AS nombre_usuario_saliente,(SELECT nombre FROM usuario WHERE id = R.usuario_id_entrante) AS nombre_usuario_entrante, (SELECT nominativo FROM puesto WHERE id = R.puesto_id) AS nominativo_puesto FROM relevo AS R WHERE R.id =</string>
+    <string name="get_compania_id_by_puesto">SELECT compania_id FROM puesto WHERE id = </string>
+    <string name="get_puestos">SELECT P.id,P.nombre,P.descripcion,P.compania_id, P.nominativo FROM puesto AS P WHERE P.estado = 1</string>
+    <string name="get_superpassword">SELECT password FROM system WHERE id = 1 LIMIT 1</string>
+    <!-- ////////////////////////////////////////////   INSERTS   //////////////////////////////////////////////////////////// -->
+    <!-- TODO: quitar estos datos por defectos al entrar en produccion -->
+    <string name="insert_default_cargo">INSERT INTO cargo(id,descripcion) VALUES(9999,\'ADMINISTRADOR\')</string>
+    <string name="insert_default_modules">INSERT INTO modulo(id,codigo,descripcion) VALUES(1,\'OP001\',\'Control de radios\'),(2,\'OP002\',\'Control de azucar\'),(3,\'OP003\',\'Bitacora digital\'),(4,\'OP004\',\'Informe especial\'),(5,\'OP005\',\'Relevo de guardia\'),(6,\'OP006\',\'Registro de usuario\')</string>
+    <string name="insert_default_compania">INSERT INTO compania(id,codigo,nombre,representante,ruc) VALUES(9999,\'C9999\',\'Compañia 1\',\'Rafael Cardona\',\'J-40023233-2\')</string>
+    <string name="insert_default_role">INSERT INTO rol(id,descripcion) VALUES(9999,\'ADMINISTRADOR\')</string>
+    <string name="insert_default_users">INSERT INTO usuario(id,dni, rol_id, cargo_id,nombre,compania_id) VALUES(9999,12345, 9999, 9999,\'ADMIN\',9999)</string>
+    <string name="insert_default_puestos">INSERT INTO puesto(id,nombre,descripcion,nominativo, compania_id) VALUES (9999,\'Puesto 1\',\'Descripcion del puesto\',\'Nominativo Puesto 1\',9999)</string>
+    <string name="insert_default_permissions">INSERT INTO permiso(id,descripcion) VALUES(1,\'create_user\'),(2,\'edit_user\'),(3,\'delete_user\'),(4,\'create_control_radios\'),(5,\'edit_control_radios\'),(6,\'delete_control_radios\'),(7,\'create_control_azucar\'),(8,\'edit_control_azucar\'),(9,\'delete_control_azucar\'),(10,\'create_bitacora\'),(11,\'edit_bitacora\'),(12,\'delete_bitacora\'),(13,\'create_informe\'),(14,\'edit_informe\'),(15,\'delete_informe\'),(16,\'create_relevo\'),(17,\'edit_relevo\'),(18,\'delete_relevo\')</string>
+    <string name="insert_default_permissions_rol_admin">INSERT INTO rolpermiso(permiso_id,rol_id) VALUES(1,1),(2,1),(3,1),(4,1),(5,1),(6,1),(7,1),(8,1),(9,1),(10,1),(11,1),(12,1),(13,1),(14,1),(15,1),(16,1),(17,1),(18,1)</string>
+    <string name="insert_default_permissions_rol_user">INSERT INTO rolpermiso(permiso_id,rol_id) VALUES(1,2),(2,2),(4,2),(5,2),(7,2),(8,2),(10,2),(11,2),(13,2),(14,2),(16,2),(17,2)</string>
+    <string name="insert_default_permissions_rol_visit">INSERT INTO rolpermiso(permiso_id,rol_id) VALUES(19,3),(20,3),(21,3),(22,3),(23,3),(24,3)</string>
+    <string name="insert_default_modules_user">INSERT INTO modulousuario(id,modulo_id,usuario_id) VALUES(9999,1,9999),(9999,2,9999),(9999,3,9999),(9999,4,9999),(9999,5,9999),(9999,6,9999)</string>
+    <string name="insert_default_system">INSERT INTO system(id,locale,password) VALUES(1,\'America/Guayaquil\',111111111)</string>
+    <string name="insert_default_suministros">INSERT INTO suministro(id,codigo,descripcion,serial,estado) VALUES(9999,\'T0001\',\'Telefono prueb\',\'ZT34342\',1)</string>
+    <string name="insert_default_dispositivo">INSERT INTO dispositivo(suministro_id,marca,modelo,sistema,serie) VALUES(9999,?,?,?,?)</string>
+
+    <string name="insert_default_suministros_puesto">INSERT INTO puesto_suministro(id,puesto_id,suministro_id,cantidad) VALUES(9999,9999,9999,1)</string>
+<!-- ////////////////////////////////////////////   DROP TABLES   //////////////////////////////////////////////////////////// -->
+
+    <string name="drop_cargo_table">DROP TABLE IF EXISTS cargo</string>
+    <string name="drop_role_table">DROP TABLE IF EXISTS rol</string>
+    <string name="drop_modulo_table">DROP TABLE IF EXISTS modulo</string>
+    <string name="drop_asistance_table">DROP TABLE IF EXISTS asistencia</string>
+    <string name="drop_permissions_table">DROP TABLE IF EXISTS permiso</string>
+    <string name="drop_role_permission_table">DROP TABLE IF EXISTS rolpermiso</string>
+    <string name="drop_modulo_user_table">DROP TABLE IF EXISTS modulousuario</string>
+    <string name="drop_label_table">DROP TABLE IF EXISTS label</string>
+    <string name="drop_compania_table">DROP TABLE IF EXISTS compania</string>
+    <string name="drop_radio_table">DROP TABLE IF EXISTS radio</string>
+    <string name="drop_session_table">DROP TABLE IF EXISTS session</string>
+    <string name="drop_suministro_table">DROP TABLE IF EXISTS suministro</string>
+    <string name="drop_puesto_table">DROP TABLE IF EXISTS puesto</string>
+    <string name="drop_bitacora_table">DROP TABLE IF EXISTS bitacora</string>
+    <string name="drop_informe_table">DROP TABLE IF EXISTS informe</string>
+    <string name="delete_where">DELETE FROM ? WHERE ?</string>
+    <string name="drop_puesto_suministro_table">DROP TABLE IF EXISTS puesto_suministro</string>
+    <string name="drop_dispositivo_table">DROP TABLE IF EXISTS dispositivo</string>
+    <string name="drop_usuario_table">DROP TABLE IF EXISTS usuario</string>
+    <string name="drop_table" >DROP TABLE IF EXISTS </string>
+
+</resources>

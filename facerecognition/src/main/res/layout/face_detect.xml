@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/estado"
+        android:layout_width="50dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="48dp"
+        android:text="@string/SIdle"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="48dp" />
+
+    <org.opencv.javacv.facerecognition.Tutorial3View
+        android:id="@+id/camera_view"
+        android:layout_width="fill_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/linearLayout2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@+id/linearLayout2" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:layout_alignParentRight="true">
+
+        <ImageView
+            android:id="@+id/imagen_captura"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/user" />
+
+        <ToggleButton
+            android:id="@+id/buscar_btn"
+            style="@style/buttonBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/SSearch"
+            android:textOff="@string/SSearch"
+            android:textOn="@string/SStopSearch" />
+
+        <ToggleButton
+            android:id="@+id/entrenar_btn"
+            style="@style/buttonBlue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/STrain"
+            android:textOff="@string/STrain"
+            android:textOn="@string/SStopTrain" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignEnd="@+id/camera_view"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_toEndOf="@+id/camera_view"
+        android:layout_toStartOf="@+id/linearLayout2"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:layout_alignRight="@+id/camera_view"
+        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@+id/camera_view"
+        android:layout_toLeftOf="@+id/linearLayout2">
+
+        <EditText
+            android:id="@+id/nombre_label_input"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_edit_text"
+            android:hint="@string/ingrese_numero_de_cedula"
+            android:inputType="number"
+            android:maxLength="13"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:textSize="20sp">
+
+            <requestFocus />
+        </EditText>
+
+        <ToggleButton
+            android:id="@+id/grabar"
+            style="@style/buttonBlue"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingEnd="20dp"
+            android:paddingStart="20dp"
+            android:text="@string/grabar"
+            android:textOff="@string/grabar"
+            android:textOn="@string/grabando"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/camera_view"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/camera_view"
+        android:layout_marginEnd="40dp"
+        android:layout_marginTop="10dp"
+        android:layout_toEndOf="@+id/camera_view"
+        android:orientation="horizontal"
+        android:layout_alignRight="@+id/camera_view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignLeft="@+id/camera_view"
+        android:layout_marginRight="40dp"
+        android:layout_toRightOf="@+id/camera_view">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="19dp"
+            android:layout_marginLeft="19dp">
+
+            <ImageView
+                android:id="@+id/icono_verde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@drawable/ic_green" />
+
+            <ImageView
+                android:id="@+id/icono_amarillo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@drawable/ic_yellow" />
+
+            <ImageView
+                android:id="@+id/icono_rojo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:src="@drawable/ic_red" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textoNombre"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_weight="0.13"
+            android:shadowColor="@android:color/black"
+            android:text="@string/SFaceName"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_marginLeft="31dp" />
+
+        <ImageButton
+            android:id="@+id/flip_camera"
+            android:contentDescription="@string/cambiar_camara"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_stat_camera" />
+
+    </LinearLayout>
+
+</RelativeLayout>

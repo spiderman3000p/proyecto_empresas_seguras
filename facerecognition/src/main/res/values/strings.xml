@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Empresas Seguras</string>
+    <string name="STrain">Train</string>
+    <string name="SViewAll">View all faces</string>
+    <string name="SSearch">Search</string>
+    <string name="SDelete">Delete</string>
+    <string name="SEnter">Enter face name, then pres Rec</string>
+    <string name="SStopTrain">Stop Training</string>
+    <string name="SStopSearch">Stop Search</string>
+    <string name="Straininig">Training...</string>
+    <string name="SCanntoPredic">More then one face is needed to predict</string>
+    <string name="SIdle">Idle</string>
+    <string name="SFaceName">Face name:</string>
+    <string name="SSearching">Searching</string>
+    <string name="SFrontCamera">Front Camera</string>
+    <string name="SBackCamera">Back Camera</string>
+    <string name="title_activity_login">Empresas Seguras</string>
+    <string name="title_activity_dashboard">Dashboard</string>
+    <string name="title_activity_gallery2">Gallery</string>
+    <string name="action_sign_in">SING IN</string>
+    <string name="dni_text">Insert your DNI</string>
+    <string name="configuration">Configuration</string>
+    <string name="logout">Logout</string>
+    <string name="action_add">Agregar</string>
+    <string name="action_search">Buscar</string>
+    <string name="title_activity_radios">Control de Radios</string>
+    <string name="title_activity_radios_nuevo">Nuevo Control de Radios</string>
+    <string name="title_activity_radios_consulta">Consulta Control de Radios</string>
+    <string name="title_activity_bitacora">Bitácora de Novedades</string>
+    <string name="title_activity_bitacora_nuevo">Nuevo registro Bitacora</string>
+    <string name="title_activity_bitacora_edit">Editar Bitacora</string>
+    <string name="title_activity_control_azucar">Control de Azucar</string>
+    <string name="title_activity_usuarios">Registrar usuarios</string>
+    <string name="db_name">compuredve.db</string>
+    <array name="opciones">
+        <item>@drawable/op1</item>
+        <item>@drawable/op2</item>
+        <item>@drawable/op3</item>
+        <item>@drawable/op4</item>
+        <item>@drawable/op5</item>
+        <item>@drawable/op7</item>
+        <item>@drawable/op6</item>
+    </array>
+    <array name="opciones_import">
+        <item>@drawable/op1</item><!-- cargos -->
+        <item>@drawable/op2</item><!-- companias -->
+        <item>@drawable/op3</item><!-- dispositivos -->
+        <item>@drawable/op4</item><!-- modulos -->
+        <item>@drawable/op5</item><!-- modulo_usuario -->
+        <item>@drawable/op7</item><!-- permisos -->
+        <item>@drawable/op6</item><!-- roles -->
+        <item>@drawable/op1</item><!-- rol_permiso -->
+        <item>@drawable/op2</item><!-- suministros -->
+        <item>@drawable/op3</item><!-- usuarios -->
+        <item>@drawable/op4</item><!-- puestos -->
+        <item>@drawable/op5</item><!-- puesto_suministro -->
+        <item>@drawable/op7</item><!-- sesiones -->
+    </array>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_control_azucar_nuevo">Nuevo Control de Azucar</string>
+    <string name="title_activity_informe">Informes Especiales</string>
+    <string name="title_activity_informe_nuevo">Informe Nuevo</string>
+
+    <string name="title_activity_splash">SplashActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_relevo">Relevos de guardianias</string>
+    <string name="title_activity_relevo_nuevo">Nuevo relevo</string>
+    <string name="title_activity_export_database">"Exportar Base de Datos "</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="btn_import">IMPORTAR</string>
+    <string name="btn_export">EXPORTAR</string>
+    <string name="import_word">importar</string>
+    <string name="export_word">exportar</string>
+    <string name="nothing_to_import_msg">No hay nada para importar!</string>
+    <string name="invalid_extension_msg">El archivo seleccionado no tiene una extensión válida</string>
+    <string name="btn_cancel">Cancelar</string>
+    <string name="btn_ok">OK</string>
+    <string name="import_database">IMPORTAR BASE DE DATOS</string>
+    <string name="import_database_msg">Por favor presione OK para buscar el archivo a importar</string>
+    <string name="error_import_no_tables">Error! archivo sin tablas a importar</string>
+    <string name="error_parsing_tables">Error! No se pudo parsear las tablas</string>
+    <string name="error_creating_dir">Error! No se pudo crear el directorio</string>
+    <string name="error_creating_file">Error! No se pudo crear el archivo</string>
+    <string name="success_import_msg">Exito! Registros importados correctamente</string>
+    <string name="some_error_occur">Ha ocurrido un error grave:</string>
+    <string name="export_import_message">Seleccione las tablas a exportar y luego presione el boton exportar.</string>
+    <string name="orden_trabajo">Orden Trabajo</string>
+    <string name="hint_orden_trabajo">p.ej: T003434</string>
+    <string name="hint_observaciones">Igrese las observaciones</string>
+    <string name="obvervaciones">Observaciones</string>
+    <string name="imagen">Imagen</string>
+    <string name="imagen_tooltip">Ingrese una imagen</string>
+    <string name="date_holder">date</string>
+    <string name="normal">NORMAL</string>
+    <string name="urgente">URGENTE</string>
+    <string name="novedad">Novedad</string>
+    <string name="hint_novedad">Escriba aqui la novedad</string>
+    <string name="comentarios">Comentarios</string>
+    <string name="identidad_usuario_saliente">IDENTIDAD DE USUARIO SALIENTE</string>
+    <string name="android_id">Android ID</string>
+    <string name="iniciar_jornada">Iniciar Jornada</string>
+    <string name="finalizar_jornada">Finalizar Jornada</string>
+    <string name="ingrese_una_imagen">Ingrese una imagen</string>
+    <string name="seleccione_cargo">seleccione cargo</string>
+    <string name="asociar_rostro">Asociar Rostro</string>
+    <string name="fecha_ingreso">Fecha de Ingreso</string>
+    <string name="hint_fecha_nacimiento">Fecha de Nacimiento</string>
+    <string name="cedula">Cedula</string>
+    <string name="suinistros">Suministros</string>
+    <string name="agregar_suministro">Agregar suministros</string>
+    <string name="hint_escriba_comentario">Escriba un comentario</string>
+    <string name="comentario">Comentario</string>
+    <string name="guardia_entrante">Guardia entrante:</string>
+    <string name="guardia_aliente">Guardia saliente:</string>
+    <string name="puesto">Puesto:</string>
+    <string name="nombres">Nombres</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="telefono">Telefono</string>
+    <string name="ciudad">Ciudad</string>
+    <string name="direccion">Direccion</string>
+    <string name="modulos_habilitados">Modulos Habilitados</string>
+    <string name="bienvenido_msg">Mensaje de bienvenido al usuario</string>
+    <string name="options">Opciones</string>
+    <string name="lorem_ipsum_dolor">lorem ipsum dolor</string>
+    <string name="foto_3">Foto 3</string>
+    <string name="foto_2">Foto 2</string>
+    <string name="foto_1">Foto 1</string>
+    <string name="t_tulo">Tìtulo</string>
+    <string name="respondio">Respondio?</string>
+    <string name="no">NO</string>
+    <string name="si">SI</string>
+    <string name="titule">Titule</string>
+    <string name="texto_a_buscar">Texto a buscar...</string>
+    <string name="ingrese_su_comentario">Ingrese su comentario...</string>
+    <string name="copyright">Copyright 2015-2018  - Empresas Seguras</string>
+    <string name="ingrese_numero_de_cedula">Ingrese numero de cedula</string>
+    <string name="grabar">Capturar</string>
+    <string name="grabando">Capturando</string>
+    <string name="foto">Foto</string>
+    <string name="cargando">Cargando...</string>
+    <string name="exportacion_exitosa">¡EXPORTACIÓN EXITOSA!</string>
+    <string name="export_finish_msg">Dirijase al directorio seleccionado para copiar el archivo de exportación en otro momento. O puede enviarlo por bluetooth en este momento.</string>
+    <string name="entendido">¡ENTENDIDO!</string>
+    <string name="enviar_por_bluetooht">ENVIAR POR BLUETOOHT</string>
+    <string name="usuario_saliente_subtitulo">IDENTIDAD USUARIO SALIENTE</string>
+    <string name="usuario_entrante_subtitulo">IDENTIDAD USUARIO ENTRANTE</string>
+    <string name="marcar_salida">MARCAR SALIDA</string>
+    <string name="marcar_entrada">MARCAR ENTRADA</string>
+    <string name="confirm_suministros_relevo">Por favor verifique el comentario, los suministros y las cantidades de suministros. Al final, marque las casillas de verificacion de cada suministro para confirmar.</string>
+    <string name="cambiar_camara">cambiar camara</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="title_activity_confirmar_relevo">Confirmar Relevo</string>
+    <string name="cuenta_abierta_msg">Para finalizar su jornada sin relevo, debe ingresar su numero de cedula</string>
+    <string name="cuenta_abierta_msg2">Para finalizar su jornada, debe hacerlo por el panel lateral, en la opcion: "Finalizar jornada sin relevo"</string>
+    <string name="informacion">Informacion</string>
+    <string name="jornada_finalizada_msg">Usted ya ha marcado su salida por el dia de hoy. No puede marcar asistencia nuevamente</string>
+    <string name="jornada_finalizada_msg2">Usted ya ha marcado su salida por el dia de hoy. Iniciara sesion, pero no se marcara su asistencia</string>
+    <string name="cedulas_iguales_msg">Operacion invalida: Las cedulas no pueden ser iguales</string>
+    <string name="importar_db">Importar Base de Datos</string>
+    <string name="exportar_db">Exportar Base de Datos</string>
+    <string name="eliminar_registros_exportados">Eliminar registros exportados</string>
+    <string name="migraciones">Migraciones</string>
+    <string name="ver_importaciones">Ver importaciones</string>
+    <string name="ver_exportaciones">Ver exportaciones</string>
+    <string name="cambiar_superclave">Cambiar Superclave</string>
+    <string name="advertencia">Advertencia</string>
+    <string name="borrar_registros_msg">Está a punto de eliminar registros de la Base de Datos. Esta acción no podrá deshacerse. ¿Está seguro de continuar?</string>
+    <string name="password">Contraseña</string>
+    <string name="new_password">Nueva contraseña</string>
+    <string name="new_password_confirm">Repita la nueva contraseña</string>
+    <string name="btn_guardar">Guardar</string>
+    <string name="registros_nuevos">Registros nuevos:</string>
+    <string name="ultima_importacion_ningun">Ultima exportación: ninguna</string>
+    <string name="volver">Volver</string>
+    <string name="buscar_suministro">Buscar suministro...</string>
+    <string name="new_password_diff">Claves no coinciden</string>
+    <string name="bitacora_digital">Bitacora Digital</string>
+    <string name="title_activity_inforrme">Informes Especiales</string>
+
+</resources>

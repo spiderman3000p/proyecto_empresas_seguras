@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar4"
+            title="@string/title_activity_radios_nuevo"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/AppBarStyle" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <ScrollView
+        android:id="@+id/scrollContent"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_below="@+id/appbar"
+        android:layout_margin="8dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textFecha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/date_holder"
+                android:textColor="#372c24"
+                android:textSize="@dimen/subtitle_1" />
+
+            <TextView
+                android:id="@+id/tvTituloIEN1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/t_tulo"
+                android:theme="@style/subtitle1" />
+
+            <EditText
+                android:id="@+id/etTituloIEN1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_edit_text"
+                android:maxLength="50"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/tvObservacionIEN1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/comentario"
+                android:theme="@style/subtitle1" />
+
+            <EditText
+                android:id="@+id/etObservacionIEN1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_edit_text"
+                android:gravity="top"
+                android:lines="8"
+                android:maxLength="8000" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btImageIEN1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_focused"
+                    android:text="@string/foto_1" />
+
+                <Button
+                    android:id="@+id/btImageIEN2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/button_focused"
+                    android:text="@string/foto_2" />
+
+                <Button
+                    android:id="@+id/btImageIEN3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/button_focused"
+                    android:text="@string/foto_3" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btCameraIEN1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/imagen"
+                    android:background="@drawable/button_example"
+                    android:src="@drawable/camera" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
